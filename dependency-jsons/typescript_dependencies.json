@@ -1,0 +1,172 @@
+{
+  "metadata": {
+    "projectName": "my-react-app",
+    "totalFiles": 25,
+    "analyzedAt": "2024-02-11T12:00:00Z",
+    "typescript": {
+      "version": "5.0.0",
+      "strict": true
+    }
+  },
+  "components": [
+    {
+      "id": "UserProfile",
+      "name": "UserProfile",
+      "filePath": "src/components/UserProfile.tsx",
+      "type": "class", // or "function" or "arrow-function"
+      "isDefault": true,
+
+      // Common fields for all component types
+      "interfaces": [
+        {
+          "name": "UserProfileProps",
+          "extends": ["BaseProps"],
+          "properties": [
+            {
+              "name": "userId",
+              "type": "string",
+              "isRequired": true
+            }
+          ]
+        }
+      ],
+      "types": [
+        {
+          "name": "UserData",
+          "type": "type",
+          "definition": {
+            "name": "string",
+            "age": "number"
+          }
+        }
+      ],
+
+      // Conditional fields based on component type
+      "classSpecific": {  // Only present if type: "class"
+        "extends": "React.Component<UserProfileProps, UserProfileState>",
+        "implements": ["CustomInterface"],
+        "constructor": {
+          "parameters": [
+            {
+              "name": "props",
+              "type": "UserProfileProps"
+            }
+          ],
+          "superCall": true
+        },
+        "lifecycle": {
+          "componentDidMount": true,
+          "componentWillUnmount": true,
+          "shouldComponentUpdate": true
+        },
+        "state": {
+          "type": "UserProfileState",
+          "initialValue": {
+            "loading": true,
+            "data": null
+          }
+        },
+        "classProperties": [
+          {
+            "name": "timer",
+            "type": "number",
+            "access": "private",
+            "static": false,
+            "readonly": true
+          }
+        ],
+        "classMethods": [
+          {
+            "name": "handleUpdate",
+            "access": "private",
+            "static": false,
+            "async": true,
+            "parameters": [
+              {
+                "name": "data",
+                "type": "UserData"
+              }
+            ],
+            "returnType": "Promise<void>"
+          }
+        ]
+      },
+
+      "functionSpecific": {  // Only present if type: "function"
+        "hooks": [
+          {
+            "name": "useState",
+            "typeParameters": ["UserData | null"],
+            "initialValue": "null"
+          }
+        ],
+        "methods": [
+          {
+            "name": "handleUpdate",
+            "async": true,
+            "parameters": [
+              {
+                "name": "data",
+                "type": "UserData"
+              }
+            ],
+            "returnType": "Promise<void>"
+          }
+        ]
+      },
+
+      "arrowSpecific": {  // Only present if type: "arrow-function"
+        "capture": ["outerScope"],
+        "hooks": [
+          {
+            "name": "useState",
+            "typeParameters": ["UserData | null"],
+            "initialValue": "null"
+          }
+        ],
+        "methods": [
+          {
+            "name": "handleUpdate",
+            "async": true,
+            "parameters": [
+              {
+                "name": "data",
+                "type": "UserData"
+              }
+            ],
+            "returnType": "Promise<void>"
+          }
+        ]
+      }
+    }
+  ],
+  "dependencies": [
+    {
+      "source": "UserProfile",
+      "target": "UserHeader",
+      "type": "render",
+      "usageLocations": [
+        {
+          "line": 45,
+          "column": 12
+        }
+      ]
+    }
+  ],
+  "externalDependencies": [
+    {
+      "componentId": "UserProfile",
+      "package": "react",
+      "imports": [
+        {
+          "name": "Component",
+          "type": "named"
+        }
+      ]
+    }
+  ],
+  "errors": {
+    "parsing": [],
+    "typeChecking": []
+  }
+}

@@ -1,0 +1,328 @@
+{
+  "projectName": "djanger",
+  "language": "Django",
+  "version": "5.1.2",
+  "analyzedAt": "2025-03-06T15:31:20.626188",
+  "nodes": [
+    {
+      "id": "app_auth_test",
+      "name": "auth_test",
+      "type": "app",
+      "language": "django",
+      "packagePath": "auth_test",
+      "metadata": {
+        "is_project_app": true,
+        "note": "Found by directory structure, not in INSTALLED_APPS"
+      }
+    },
+    {
+      "id": "app_blog",
+      "name": "blog",
+      "type": "app",
+      "language": "django",
+      "packagePath": "blog",
+      "metadata": {
+        "is_project_app": true,
+        "note": "Found by directory structure, not in INSTALLED_APPS"
+      }
+    },
+    {
+      "id": "app_api",
+      "name": "api",
+      "type": "app",
+      "language": "django",
+      "packagePath": "api",
+      "metadata": {
+        "is_project_app": true,
+        "note": "Found by directory structure, not in INSTALLED_APPS"
+      }
+    },
+    {
+      "id": "app_authsys",
+      "name": "authsys",
+      "type": "app",
+      "language": "django",
+      "packagePath": "authsys",
+      "metadata": {
+        "is_project_app": true,
+        "note": "Found by directory structure, not in INSTALLED_APPS"
+      }
+    },
+    {
+      "id": "model_blog_Tag",
+      "name": "Tag",
+      "type": "model",
+      "language": "django",
+      "packagePath": "blog",
+      "metadata": {
+        "fields": [
+          {
+            "name": "name",
+            "type": "CharField",
+            "attributes": {
+              "max_length": 20
+            }
+          }
+        ],
+        "methods": [],
+        "meta": {}
+      }
+    },
+    {
+      "id": "model_blog_Post",
+      "name": "Post",
+      "type": "model",
+      "language": "django",
+      "packagePath": "blog",
+      "metadata": {
+        "fields": [
+          {
+            "name": "title",
+            "type": "CharField",
+            "attributes": {
+              "max_length": 50
+            }
+          },
+          {
+            "name": "content",
+            "type": "TextField",
+            "attributes": {}
+          },
+          {
+            "name": "user",
+            "type": "ForeignKey",
+            "attributes": {
+              "on_delete": "models.CASCADE",
+              "null": true
+            }
+          },
+          {
+            "name": "liked_by",
+            "type": "ManyToManyField",
+            "attributes": {
+              "related_name": "liked_posts",
+              "blank": true
+            }
+          },
+          {
+            "name": "disliked_by",
+            "type": "ManyToManyField",
+            "attributes": {
+              "related_name": "disliked_posts",
+              "blank": true
+            }
+          },
+          {
+            "name": "image",
+            "type": "ImageField",
+            "attributes": {
+              "blank": true
+            }
+          },
+          {
+            "name": "tags",
+            "type": "ManyToManyField",
+            "attributes": {}
+          },
+          {
+            "name": "created",
+            "type": "DateTimeField",
+            "attributes": {
+              "auto_now": true
+            }
+          },
+          {
+            "name": "updated",
+            "type": "DateTimeField",
+            "attributes": {
+              "auto_now": true
+            }
+          }
+        ],
+        "methods": [
+          {
+            "name": "__str__",
+            "parameters": []
+          }
+        ],
+        "meta": {}
+      }
+    },
+    {
+      "id": "model_blog_Comment",
+      "name": "Comment",
+      "type": "model",
+      "language": "django",
+      "packagePath": "blog",
+      "metadata": {
+        "fields": [
+          {
+            "name": "content",
+            "type": "CharField",
+            "attributes": {
+              "max_length": 200
+            }
+          },
+          {
+            "name": "post",
+            "type": "ForeignKey",
+            "attributes": {
+              "on_delete": "models.CASCADE",
+              "related_name": "comments"
+            }
+          },
+          {
+            "name": "user",
+            "type": "ForeignKey",
+            "attributes": {
+              "on_delete": "models.CASCADE"
+            }
+          }
+        ],
+        "methods": [
+          {
+            "name": "__str__",
+            "parameters": []
+          }
+        ],
+        "meta": {
+          "constraints": [
+            null
+          ]
+        }
+      }
+    },
+    {
+      "id": "model_authsys_Profile",
+      "name": "Profile",
+      "type": "model",
+      "language": "django",
+      "packagePath": "authsys",
+      "metadata": {
+        "fields": [
+          {
+            "name": "user",
+            "type": "OneToOneField",
+            "attributes": {
+              "on_delete": "models.CASCADE"
+            }
+          },
+          {
+            "name": "bio",
+            "type": "TextField",
+            "attributes": {
+              "blank": true
+            }
+          }
+        ],
+        "methods": [
+          {
+            "name": "__str__",
+            "parameters": []
+          }
+        ],
+        "meta": {}
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "app_blog",
+      "target": "model_blog_Tag",
+      "type": "contains",
+      "metadata": {}
+    },
+    {
+      "source": "app_blog",
+      "target": "model_blog_Post",
+      "type": "contains",
+      "metadata": {}
+    },
+    {
+      "source": "model_blog_Post",
+      "target": "model_blog_User",
+      "type": "ForeignKey",
+      "metadata": {
+        "field_name": "user",
+        "related_name": null
+      }
+    },
+    {
+      "source": "model_blog_Post",
+      "target": "model_blog_User",
+      "type": "ManyToManyField",
+      "metadata": {
+        "field_name": "liked_by",
+        "related_name": "liked_posts"
+      }
+    },
+    {
+      "source": "model_blog_Post",
+      "target": "model_blog_User",
+      "type": "ManyToManyField",
+      "metadata": {
+        "field_name": "disliked_by",
+        "related_name": "disliked_posts"
+      }
+    },
+    {
+      "source": "model_blog_Post",
+      "target": "model_blog_Tag",
+      "type": "ManyToManyField",
+      "metadata": {
+        "field_name": "tags",
+        "related_name": null
+      }
+    },
+    {
+      "source": "app_blog",
+      "target": "model_blog_Comment",
+      "type": "contains",
+      "metadata": {}
+    },
+    {
+      "source": "model_blog_Comment",
+      "target": "model_blog_Post",
+      "type": "ForeignKey",
+      "metadata": {
+        "field_name": "post",
+        "related_name": "comments"
+      }
+    },
+    {
+      "source": "model_blog_Comment",
+      "target": "model_blog_User",
+      "type": "ForeignKey",
+      "metadata": {
+        "field_name": "user",
+        "related_name": null
+      }
+    },
+    {
+      "source": "app_authsys",
+      "target": "model_authsys_Profile",
+      "type": "contains",
+      "metadata": {}
+    },
+    {
+      "source": "model_authsys_Profile",
+      "target": "model_authsys_User",
+      "type": "OneToOneField",
+      "metadata": {
+        "field_name": "user",
+        "related_name": null
+      }
+    }
+  ],
+  "metadata": {
+    "projectName": "djanger",
+    "totalApps": 4,
+    "totalModels": 4,
+    "totalViews": 21,
+    "analyzedAt": "2025-03-06T15:31:20.626188",
+    "django": {
+      "version": "5.1.2",
+      "debug": true
+    }
+  }
+}

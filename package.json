@@ -1,0 +1,22 @@
+{
+  "name": "dependency-converter",
+  "version": "1.0.0",
+  "description": "Converts different dependency JSON formats to a standardized format",
+  "main": "dist/dependencyConverter.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "node dist/testConverter.js",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "dependencies",
+    "converter",
+    "json"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^14.14.31",
+    "typescript": "^4.2.2"
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "projectName": "my-react-app",
+  "language": "TypeScript",
+  "version": "5.0.0",
+  "analyzedAt": "2024-02-11T12:00:00Z",
+  "nodes": [
+    {
+      "id": "UserProfile",
+      "name": "UserProfile",
+      "type": "class",
+      "language": "typescript",
+      "filePath": "src/components/UserProfile.tsx",
+      "metadata": {
+        "isDefault": true,
+        "interfaces": [
+          {
+            "name": "UserProfileProps",
+            "extends": [
+              "BaseProps"
+            ],
+            "properties": [
+              {
+                "name": "userId",
+                "type": "string",
+                "isRequired": true
+              }
+            ]
+          }
+        ],
+        "types": [
+          {
+            "name": "UserData",
+            "type": "type",
+            "definition": {
+              "name": "string",
+              "age": "number"
+            }
+          }
+        ],
+        "extends": "React.Component<UserProfileProps, UserProfileState>",
+        "implements": [
+          "CustomInterface"
+        ],
+        "constructor": {
+          "parameters": [
+            {
+              "name": "props",
+              "type": "UserProfileProps"
+            }
+          ],
+          "superCall": true
+        },
+        "lifecycle": {
+          "componentDidMount": true,
+          "componentWillUnmount": true,
+          "shouldComponentUpdate": true
+        },
+        "state": {
+          "type": "UserProfileState",
+          "initialValue": {
+            "loading": true,
+            "data": null
+          }
+        },
+        "classProperties": [
+          {
+            "name": "timer",
+            "type": "number",
+            "access": "private",
+            "static": false,
+            "readonly": true
+          }
+        ],
+        "classMethods": [
+          {
+            "name": "handleUpdate",
+            "access": "private",
+            "static": false,
+            "async": true,
+            "parameters": [
+              {
+                "name": "data",
+                "type": "UserData"
+              }
+            ],
+            "returnType": "Promise<void>"
+          }
+        ]
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "UserProfile",
+      "target": "UserHeader",
+      "type": "render",
+      "metadata": {
+        "usageLocations": [
+          {
+            "line": 45,
+            "column": 12
+          }
+        ]
+      }
+    }
+  ],
+  "metadata": {
+    "projectName": "my-react-app",
+    "totalFiles": 25,
+    "analyzedAt": "2024-02-11T12:00:00Z",
+    "typescript": {
+      "version": "5.0.0",
+      "strict": true
+    }
+  }
+}
