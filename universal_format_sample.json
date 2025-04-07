@@ -1,0 +1,114 @@
+{
+  "projectName": "sample-project",
+  "language": "TypeScript",
+  "version": "1.0.0",
+  "analyzedAt": "2025-03-22T16:30:00Z",
+  "nodes": [
+    {
+      "id": "component1",
+      "name": "UserComponent",
+      "type": "component",
+      "language": "typescript",
+      "filePath": "src/components/User.tsx",
+      "metadata": {
+        "isDefault": true,
+        "description": "User profile component"
+      }
+    },
+    {
+      "id": "component2",
+      "name": "AuthService",
+      "type": "class",
+      "language": "typescript",
+      "filePath": "src/services/Auth.ts",
+      "metadata": {
+        "isStatic": true,
+        "description": "Authentication service"
+      }
+    },
+    {
+      "id": "component3",
+      "name": "UserModel",
+      "type": "model",
+      "language": "typescript",
+      "filePath": "src/models/User.ts",
+      "metadata": {
+        "fields": [
+          {
+            "name": "id",
+            "type": "string"
+          },
+          {
+            "name": "username",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "id": "component4",
+      "name": "utils",
+      "type": "package",
+      "language": "typescript",
+      "packagePath": "src/utils",
+      "metadata": {
+        "description": "Utility functions"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "component1",
+      "target": "component2",
+      "type": "imports",
+      "metadata": {
+        "usageLocations": [
+          {
+            "line": 10,
+            "column": 15
+          }
+        ]
+      }
+    },
+    {
+      "source": "component1",
+      "target": "component3",
+      "type": "uses",
+      "metadata": {
+        "usageType": "prop",
+        "frequency": "high"
+      }
+    },
+    {
+      "source": "component2",
+      "target": "component4",
+      "type": "imports",
+      "metadata": {
+        "functions": ["formatDate", "validateInput"]
+      }
+    },
+    {
+      "source": "component3",
+      "target": "component4",
+      "type": "imports",
+      "metadata": {
+        "functions": ["generateId"]
+      }
+    }
+  ],
+  "metadata": {
+    "generatedBy": "DependencyConverter",
+    "totalFiles": 45,
+    "analysisTime": "2.34s",
+    "configuration": {
+      "includeNodeModules": false,
+      "analyzeTests": true
+    },
+    "stats": {
+      "componentCount": 12,
+      "classCount": 8,
+      "functionCount": 25,
+      "packageCount": 5
+    }
+  }
+} 
